@@ -2,6 +2,9 @@
 
 Following are the steps for creating a kubernetes cluster with single master and worker node.
 
+![](https://i.imgur.com/ToeuZEX.png)
+
+
 ## AWS EC2 Instance provisioning
 Launch two t2-medium instances with Ubuntu 18.04 AMI.
 
