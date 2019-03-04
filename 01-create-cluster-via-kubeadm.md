@@ -1,6 +1,6 @@
 # Creating Kubernetes cluster using Kubeadm
 
-Following are the steps for creating a kubernetes cluster with single master and worker node.
+Following are the steps for creating kubernetes cluster with single master and worker node.
 
 ![](https://i.imgur.com/ToeuZEX.png)
 
