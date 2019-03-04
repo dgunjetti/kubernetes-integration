@@ -1,4 +1,4 @@
-# Setting up Kubernetes cluster with  single master and worker node on AWS
+# Creating Kubernetes cluster using Kubeadm
 
 Following are the steps for creating a kubernetes cluster with single master and worker node.
 
