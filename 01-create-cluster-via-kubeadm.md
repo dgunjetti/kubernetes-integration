@@ -36,7 +36,7 @@ cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
-apt-get update apt-get install -y kubelet kubeadm 
+apt-get install -y kubelet kubeadm kubectl
 
 kubectl apt-mark hold kubelet kubeadm kubectl
 ```
