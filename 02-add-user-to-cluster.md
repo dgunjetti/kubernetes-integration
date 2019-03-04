@@ -79,7 +79,7 @@ kubectl create clusterrolebinding read-pod --clusterrole=pod-reader --user=bob
 ```
 kubectl get pod --kubeconfig=bob.kubeconfig
 ```
-now list the pods should be visible
+now list of pods should be visible
 
 ## Try to get nodes information
 ```
