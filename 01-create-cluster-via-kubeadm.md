@@ -56,25 +56,9 @@ kubeadm init will download and install cluster control plane components.
 
 copy the entire 'kubeadm join' command giving at the end of kubeadm init output. It will be used to join worker node.
 
-
-## Add worker node
-Run the copied 'kubeadm join' command.
-
-```
-kubeadm join 172.31.3.36:6443 --token <token> --discovery-token-ca-cert-hash <discovery-token>
-```
-
-
-## Verify on master
-
 ### export admin kubeconfig.
 ```
 export KUBECONFIG=/etc/kubernetes/admin.conf
-```
-
-### Verify nodes are added
-```
-kubectl get nodes
 ```
 
 ### Verify component status
@@ -82,7 +66,29 @@ kubectl get nodes
 kubectl get componentstatus
 ```
 
-### If statuses are ok, cluster is UP!!!
+### install calico network plugin
+```
+kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+```
+
+
+## Add worker node
+Run the copied 'kubeadm join' command.
+```
+kubeadm join 172.31.3.36:6443 --token <token> --discovery-token-ca-cert-hash <discovery-token>
+```
+
+
+## Verify on master
+
+### Verify nodes are added
+```
+kubectl get nodes
+```
+It lists both master and worker node.
+
+### Now cluster should be UP!!!
 
 
 
