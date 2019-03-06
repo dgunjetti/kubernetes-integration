@@ -105,9 +105,9 @@ kubectl get ingress basic-ingress
 ```
 It will take some time for loadbalancer to get provisioned 
 
-## create DNS entry mapping domain name with external ip address
+## Create DNS entry mapping domain name with external ip address
 
-## point the browser to dns name
+## Point the browser to dns name
 Wait for dns propogation, it takes 5-10 minutes, we need to get 'welcome to nginx' html web page.
 
 ## Configure Let's Encrypt Issuer
@@ -132,7 +132,7 @@ spec:
 EOF
 ```
 
-## edit ingress resource to enable tls
+## Update ingress resource to enable tls
 Edit the hostname below
 ```
 cat << EOF | kubectl apply -f -
@@ -154,8 +154,9 @@ spec:
 EOF
 ```
 
-## check certificate is created
+## Check certificate is created
 ```
+kubectl get cert
 kubectl get challenge
 ```
 wait for challenge to get resolved.
