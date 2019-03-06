@@ -162,7 +162,7 @@ kubectl get challenge
 wait for challenge to get resolved.
 
 
-## point the browser to http://<dns name>
+## Point the browser to http://<dns name>
 we need to see web server is now available to https.
 
 
