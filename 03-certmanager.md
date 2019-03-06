@@ -28,19 +28,28 @@ helm install stable/nginx-ingress --name=nginx-ingress
 kubectl create deployment nginx --image=nginx
 kubectl expose deployment nginx --type=NodePort --port=80
 ```
+
 ## Create ingress resource
 ```
-cat << EOF | kubectl create -f -
+cat << EOF | kubectl apply -f -
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: basic-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx" 
 spec:
-  backend:
-    serviceName: nginx
-    servicePort: 80
+  rules:
+  - host: example.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx
+          servicePort: 80
 EOF
 ```
+
 ## Get external ip address
 ```
 kubectl get ingress basic-ingress
@@ -52,9 +61,10 @@ we may get HTTP 404 until external-ip is propogated.
 we need to get 'welcome to nginx' html web page.
 
 ## create DNS entry mapping domain name with external ip address
-on AWS Route53 create A record, paste the ip address at value field.
+on AWS Route53 create A record for the hosted domain, paste the ip address at value field.
+wait for dns propogation.
+On entring DNS name on browser we should be able to reach backend nginx web server over port 80
 
-## On entring DNS name on browser we should be able to reach backend nginx web server over port 80
 
 ## Work for https
 ## Deploy cert-manager
@@ -62,6 +72,7 @@ on AWS Route53 create A record, paste the ip address at value field.
 kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
 helm install --name cert-manager --namespace cert-manager stable/cert-manager
 ```
+
 ## Configure Let's Encrypt Issuer
 Edit the email address below
 
