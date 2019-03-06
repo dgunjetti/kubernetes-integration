@@ -163,7 +163,7 @@ wait for challenge to get resolved.
 
 
 ## Point the browser to https://\<dnsname\>
-we need to see web server available to https.
+we need to see web server available on https.
 
 
 
