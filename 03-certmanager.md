@@ -1,6 +1,6 @@
 # kubernetes + ingress + cert-manager + letsencrypt = https
 
-The objective is to automatically generate certificate for web hosting using cert-manager and letsencrypt.
+The objective is to automatically generate and manage certificate for web hosting using cert-manager and letsencrypt.
 
 ## Install helm client
 ```
