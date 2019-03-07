@@ -168,9 +168,13 @@ spec:
   - hosts:
     - test.hashfab.io
     secretName: test-hashfab-tls
-  backend:
-    serviceName: nginx
-    servicePort: 80
+  rules:
+  - host: test.hashfab.io
+    http:
+      paths:
+      - backend:
+          serviceName: nginx
+          servicePort: 80
 EOF
 ```
 
