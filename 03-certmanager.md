@@ -161,7 +161,7 @@ kind: Ingress
 metadata:
   name: basic-ingress
   annotations:
-    certmanager.k8s.io/issuer: "letsencrypt-staging"
+    certmanager.k8s.io/issuer: "letsencrypt-prod"
     certmanager.k8s.io/acme-challenge-type: http01
 spec:
   tls:
@@ -177,9 +177,8 @@ EOF
 ## Check certificate is created
 ```
 kubectl get cert
-kubectl get challenge
 ```
-wait for challenge to get resolved.
+wait for certificate status to become ready.
 
 
 ## Point the browser to https://\<dnsname\>
