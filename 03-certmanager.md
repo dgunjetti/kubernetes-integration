@@ -1,4 +1,4 @@
-# Kubernetes + ingress + cert-manager + letsencrypt = https
+# kubernetes + ingress + cert-manager + letsencrypt = https
 
 ## Install helm client
 ```
