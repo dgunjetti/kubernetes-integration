@@ -85,7 +85,16 @@ kubectl expose deployment nginx --type=NodePort --port=80
 helm install stable/nginx-ingress --name=nginx-ingress
 ```
 
-## Create ingress resource
+## Get external IP address (dns name in AWS) of loadbalancer nginx-ingress-controller
+```
+kubectl get svc
+```
+It will take some time for loadbalancer to get provisioned 
+
+## Create DNS entry mapping domain name with external ip address
+
+
+## Create ingress resource for http access
 ```
 cat << EOF | kubectl apply -f -
 apiVersion: extensions/v1beta1
@@ -98,14 +107,6 @@ spec:
     servicePort: 80
 EOF
 ```
-
-## Get external ip address
-```
-kubectl get ingress basic-ingress
-```
-It will take some time for loadbalancer to get provisioned 
-
-## Create DNS entry mapping domain name with external ip address
 
 ## Point the browser to dns name
 Wait for dns propogation, it takes 5-10 minutes, we need to get 'welcome to nginx' html web page.
