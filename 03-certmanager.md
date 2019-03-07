@@ -1,5 +1,7 @@
 # kubernetes + ingress + cert-manager + letsencrypt = https
 
+The objective is to automatically generate certificate for web hosting using cert-manager and letsencrypt.
+
 ## Install helm client
 ```
 brew install kubernetes-helm
